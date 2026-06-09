@@ -2,6 +2,14 @@
 
 A production-ready RESTful backend API for task lifecycle management built with Spring Boot, following clean layered architecture and stateless REST conventions.
 
+## Live Deployment
+
+Base URL:
+https://taskmanagement-production-739e.up.railway.app
+
+Example Endpoint:
+https://taskmanagement-production-739e.up.railway.app/api/tasks
+
 ## Tech Stack
 | Technology | Purpose |
 |-----------|---------|
@@ -10,7 +18,7 @@ A production-ready RESTful backend API for task lifecycle management built with 
 | Spring Data JPA | Database ORM |
 | Hibernate | JPA implementation |
 | H2 Database | In-memory testing |
-| MySQL | Production database |
+| MySQL | future Production database support |
 | Maven | Build tool |
 
 ## API Endpoints
