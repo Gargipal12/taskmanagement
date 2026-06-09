@@ -47,7 +47,7 @@ Controller - Service - Repository - Database
 
 ## Database Configuration
 - H2 — In-memory database used for testing, auto-configured with no setup required
-- MySQL — Persistent production database, data retained across restarts
+- MySQL — Supported database option for future production deployments
 
 ## Running the Project
 1. Clone the repository
