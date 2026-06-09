@@ -18,7 +18,7 @@ https://taskmanagement-production-739e.up.railway.app/api/tasks
 | Spring Data JPA | Database ORM |
 | Hibernate | JPA implementation |
 | H2 Database | In-memory testing |
-| MySQL | future Production database support |
+| MySQL | Supported database option for future production deployments |
 | Maven | Build tool |
 
 ## API Endpoints
