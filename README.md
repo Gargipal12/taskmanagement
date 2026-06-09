@@ -1,8 +1,8 @@
-# 📋 Task Management Backend Service
+# Task Management Backend Service
 
-A production-ready RESTful backend API for task lifecycle management built with Spring Boot.
+A production-ready RESTful backend API for task lifecycle management built with Spring Boot, following clean layered architecture and stateless REST conventions.
 
-## 🚀 Tech Stack
+## Tech Stack
 | Technology | Purpose |
 |-----------|---------|
 | Java 21 | Core language |
@@ -13,7 +13,7 @@ A production-ready RESTful backend API for task lifecycle management built with 
 | MySQL | Production database |
 | Maven | Build tool |
 
-## 📌 API Endpoints
+## API Endpoints
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | /api/tasks | Get all tasks |
@@ -21,31 +21,31 @@ A production-ready RESTful backend API for task lifecycle management built with 
 | POST | /api/tasks | Create new task |
 | PUT | /api/tasks/{id} | Update task |
 | DELETE | /api/tasks/{id} | Delete task |
-| GET | /api/tasks/status/{status} | Filter by status |
+| GET | /api/tasks/status/{status} | Filter tasks by status |
 
-## 🏗️ Architecture
-Controller → Service → Repository → Database
+## Architecture
+Controller - Service - Repository - Database
 
-- **Controller** — Handles HTTP requests
-- **Service** — Business logic
-- **Repository** — Database operations via JPA
+- Controller — Handles incoming HTTP requests and returns responses
+- Service — Contains business logic and orchestrates operations
+- Repository — Manages all database interactions via Spring Data JPA
 
-## 📊 Task Model
-- `id` — Auto-generated unique ID
-- `title` — Task name (required)
-- `description` — Task details
-- `status` — PENDING / IN_PROGRESS / COMPLETED
-- `dueDate` — Deadline
+## Task Model
+- id — Auto-generated unique identifier
+- title — Task name (required)
+- description — Task details
+- status — PENDING / IN_PROGRESS / COMPLETED
+- dueDate — Task deadline
 
-## 🗄️ Database Setup
-- **H2** — In-memory database for testing (auto-configured)
-- **MySQL** — Production database
+## Database Configuration
+- H2 — In-memory database used for testing, auto-configured with no setup required
+- MySQL — Persistent production database, data retained across restarts
 
-## ▶️ How To Run
-1. Clone the repo
+## Running the Project
+1. Clone the repository
 2. Open in IntelliJ IDEA
-3. Run `TaskmanagerApplication.java`
-4. API available at `http://localhost:8081/api/tasks`
+3. Run TaskmanagerApplication.java
+4. API available at http://localhost:8081/api/tasks
 
-## ✅ Tested With
-All endpoints tested via Postman with full CRUD operations verified.
+## Testing
+All endpoints tested via Postman with full CRUD operations verified including create, read, update, delete and status-based filtering.
