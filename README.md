@@ -18,7 +18,7 @@ https://taskmanagement-production-739e.up.railway.app/api/tasks
 | Spring Data JPA | Database ORM |
 | Hibernate | JPA implementation |
 | H2 Database | In-memory testing |
-| MySQL | Supported database option for future production deployments |
+| MySQL | Production database (dual-database setup with H2) |
 | Maven | Build tool |
 
 ## API Endpoints
@@ -47,7 +47,7 @@ Controller - Service - Repository - Database
 
 ## Database Configuration
 - H2 — In-memory database used for testing, auto-configured with no setup required
-- MySQL — Supported database option for future production deployments
+- MySQL —  Production database configured alongside H2 for persistent storage
 
 ## Running the Project
 1. Clone the repository
