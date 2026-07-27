@@ -1,59 +1,280 @@
-# Task Management Backend Service
+# 🔐 Secure Task Management Backend
 
-A production-ready RESTful backend API for task lifecycle management built with Spring Boot, following clean layered architecture and stateless REST conventions.
+A production-ready RESTful backend application built with **Spring Boot** featuring **JWT Authentication**, **Spring Security**, secure user registration & login, and complete task management APIs following a clean layered architecture.
 
-## Live Deployment
+---
 
-Base URL:
+## 🚀 Live Deployment
+
+**Base URL**
+
 https://taskmanagement-production-739e.up.railway.app
 
-Example Endpoint:
+**Current Live Task API**
+
 https://taskmanagement-production-739e.up.railway.app/api/tasks
 
-## Tech Stack
+> **Note:** The GitHub project includes JWT Authentication and Spring Security. Deploy the latest version to Railway to enable the authentication endpoints online.
+
+---
+
+# ✨ Features
+
+- 🔐 JWT Authentication
+- 👤 Secure User Registration
+- 🔑 Secure User Login
+- 🔒 Password Encryption using BCrypt
+- ✅ Complete CRUD Operations for Tasks
+- 📌 Task Status Filtering
+- 🏗️ Layered Architecture (Controller → Service → Repository)
+- 🗄️ Database Integration using Spring Data JPA & Hibernate
+- 🧪 Tested using Postman
+
+---
+
+# 🛠️ Tech Stack
+
 | Technology | Purpose |
-|-----------|---------|
-| Java 21 | Core language |
-| Spring Boot 3.x | Backend framework |
-| Spring Data JPA | Database ORM |
-| Hibernate | JPA implementation |
-| H2 Database | In-memory testing |
-| MySQL | Production database (dual-database setup with H2) |
-| Maven | Build tool |
+|------------|---------|
+| Java 21 | Core Programming Language |
+| Spring Boot 3.x | Backend Framework |
+| Spring Security | Authentication & Authorization |
+| JWT (JSON Web Token) | Secure Authentication |
+| Spring Data JPA | Database Access |
+| Hibernate | ORM Framework |
+| H2 Database | Development & Testing |
+| MySQL | Production Database |
+| Maven | Dependency Management |
+| Postman | API Testing |
 
-## API Endpoints
+---
+
+# 📂 Project Structure
+
+```
+src
+├── controller
+│   ├── AuthController
+│   └── TaskController
+│
+├── dto
+│   ├── RegisterRequest
+│   ├── LoginRequest
+│   └── AuthResponse
+│
+├── model
+│   ├── User
+│   ├── Task
+│   └── TaskStatus
+│
+├── repository
+│   ├── UserRepository
+│   └── TaskRepository
+│
+├── security
+│   ├── JwtService
+│   ├── SecurityConfig
+│   └── CustomUserDetailsService
+│
+├── service
+│   ├── AuthService
+│   └── TaskService
+│
+└── resources
+```
+
+---
+
+# 🔐 Authentication APIs
+
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/tasks | Get all tasks |
-| GET | /api/tasks/{id} | Get task by ID |
-| POST | /api/tasks | Create new task |
-| PUT | /api/tasks/{id} | Update task |
-| DELETE | /api/tasks/{id} | Delete task |
-| GET | /api/tasks/status/{status} | Filter tasks by status |
+|---------|----------|-------------|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Authenticate user and generate JWT |
 
-## Architecture
-Controller - Service - Repository - Database
+---
 
-- Controller — Handles incoming HTTP requests and returns responses
-- Service — Contains business logic and orchestrates operations
-- Repository — Manages all database interactions via Spring Data JPA
+# 📋 Task APIs
 
-## Task Model
-- id — Auto-generated unique identifier
-- title — Task name (required)
-- description — Task details
-- status — PENDING / IN_PROGRESS / COMPLETED
-- dueDate — Task deadline
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/tasks` | Get all tasks |
+| GET | `/api/tasks/{id}` | Get task by ID |
+| POST | `/api/tasks` | Create a new task |
+| PUT | `/api/tasks/{id}` | Update an existing task |
+| DELETE | `/api/tasks/{id}` | Delete a task |
+| GET | `/api/tasks/status/{status}` | Filter tasks by status |
 
-## Database Configuration
-- H2 — In-memory database used for testing, auto-configured with no setup required
-- MySQL —  Production database configured alongside H2 for persistent storage
+---
 
-## Running the Project
-1. Clone the repository
-2. Open in IntelliJ IDEA
-3. Run TaskmanagerApplication.java
-4. API available at http://localhost:8081/api/tasks
+# 🔄 Authentication Flow
 
-## Testing
-All endpoints tested via Postman with full CRUD operations verified including create, read, update, delete and status-based filtering.
+## User Registration
+
+```
+Client
+   │
+   ▼
+POST /auth/register
+   │
+   ▼
+Validate Request
+   │
+   ▼
+Check Existing Email
+   │
+   ▼
+Encrypt Password (BCrypt)
+   │
+   ▼
+Save User
+   │
+   ▼
+Generate JWT
+   │
+   ▼
+Return Token
+```
+
+---
+
+## User Login
+
+```
+Client
+   │
+   ▼
+POST /auth/login
+   │
+   ▼
+Verify Credentials
+   │
+   ▼
+Generate JWT
+   │
+   ▼
+Return Token
+```
+
+---
+
+# 🏗️ Architecture
+
+```
+Client
+   │
+   ▼
+Spring Security
+   │
+   ▼
+Controller
+   │
+   ▼
+Service
+   │
+   ▼
+Repository
+   │
+   ▼
+Database
+```
+
+### Controller
+Handles incoming HTTP requests and returns HTTP responses.
+
+### Service
+Contains business logic and coordinates application workflows.
+
+### Repository
+Performs database operations using Spring Data JPA.
+
+### Security
+Handles authentication, authorization, password encryption, and JWT generation.
+
+---
+
+# 📦 Database
+
+### User
+
+- id
+- name
+- email
+- password (BCrypt Encrypted)
+
+### Task
+
+- id
+- title
+- description
+- status
+- dueDate
+
+---
+
+# ▶️ Running the Project
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+### Open in IntelliJ IDEA
+
+Import as a Maven project.
+
+### Run
+
+Execute
+
+```
+TaskmanagerApplication.java
+```
+
+Application starts at
+
+```
+http://localhost:8081
+```
+
+---
+
+# 🧪 Testing
+
+The project has been tested using **Postman**.
+
+### Authentication
+
+- ✅ Register User
+- ✅ Login User
+- ✅ JWT Token Generation
+
+### Task APIs
+
+- ✅ Create Task
+- ✅ Get All Tasks
+- ✅ Get Task by ID
+- ✅ Update Task
+- ✅ Delete Task
+- ✅ Filter Tasks by Status
+
+---
+
+# 📌 Future Enhancements
+
+- Refresh Tokens
+- Role-Based Authorization (Admin/User)
+- Email Verification
+- Docker Deployment
+- Swagger / OpenAPI Documentation
+- PostgreSQL Support
+- Unit & Integration Testing
+
+---
+
+## 👩‍💻 Author
+
+**Gargi Pal**
+
+Backend Developer | Java | Spring Boot | Spring Security | REST APIs | JWT Authentication
