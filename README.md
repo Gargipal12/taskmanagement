@@ -1,21 +1,26 @@
 # 🚀 Secure Task Management API
 
-A secure RESTful Task Management API built with **Spring Boot**, **Spring Security**, **JWT Authentication**, and **Swagger/OpenAPI**. The project demonstrates secure authentication, task management, and clean backend architecture.
+A secure RESTful Task Management API built with **Java 21**, **Spring Boot**, **Spring Security**, and **JWT Authentication**. The application provides secure user authentication and task management through a clean layered architecture. It is documented with **Swagger/OpenAPI**, containerized using **Docker**, and deployed on **Render**.
 
-🌐 **Live Demo:** https://taskmanagement-i92t.onrender.com
+## 🌐 Live Demo
 
-📂 **Repository:** https://github.com/Gargipal12/taskmanagement
+**API:** https://taskmanagement-i92t.onrender.com
+
+**GitHub:** https://github.com/Gargipal12/taskmanagement
+
+> This is a backend application. APIs can be tested using **Swagger UI** or **Postman**.
 
 ---
 
 ## ✨ Features
 
 - 🔐 JWT Authentication & Authorization
-- 👤 User Registration & Login
+- 👤 Secure User Registration & Login
+- 🔒 BCrypt Password Encryption
 - 📋 Task CRUD Operations
 - 🔍 Filter Tasks by Status
 - 📖 Swagger/OpenAPI Documentation
-- 🔒 BCrypt Password Encryption
+- 🏗️ Layered Architecture (Controller → Service → Repository)
 - 🐳 Docker Support
 - ☁️ Deployed on Render
 
@@ -26,7 +31,7 @@ A secure RESTful Task Management API built with **Spring Boot**, **Spring Securi
 - Java 21
 - Spring Boot
 - Spring Security
-- JWT
+- JWT (JSON Web Token)
 - Spring Data JPA
 - Hibernate
 - H2 Database
@@ -40,25 +45,48 @@ A secure RESTful Task Management API built with **Spring Boot**, **Spring Securi
 ## 🏗️ Architecture
 
 ```text
-Client
-   │
-   ▼
+Client (Swagger/Postman)
+        │
+        ▼
 Spring Security
-   │
-   ▼
-JWT Filter
-   │
-   ▼
+        │
+        ▼
+JWT Authentication Filter
+        │
+        ▼
 Controller
-   │
-   ▼
+        │
+        ▼
 Service
-   │
-   ▼
+        │
+        ▼
 Repository
-   │
-   ▼
+        │
+        ▼
 H2 Database
+```
+
+---
+
+## 🔐 Authentication Flow
+
+```text
+User Login
+     │
+     ▼
+JWT Generated
+     │
+     ▼
+Client Sends JWT
+     │
+     ▼
+JWT Authentication Filter
+     │
+     ▼
+Spring Security
+     │
+     ▼
+Protected APIs
 ```
 
 ---
@@ -68,14 +96,14 @@ H2 Database
 ### Authentication
 
 | Method | Endpoint |
-|---------|----------|
+|--------|----------|
 | POST | `/auth/register` |
 | POST | `/auth/login` |
 
 ### Tasks
 
 | Method | Endpoint |
-|---------|----------|
+|--------|----------|
 | GET | `/api/tasks` |
 | GET | `/api/tasks/{id}` |
 | POST | `/api/tasks` |
@@ -93,6 +121,12 @@ cd taskmanagement
 ./mvnw spring-boot:run
 ```
 
+Application:
+
+```
+http://localhost:8081
+```
+
 Swagger UI:
 
 ```
@@ -101,24 +135,15 @@ http://localhost:8081/swagger-ui/index.html
 
 ---
 
-## 📷 Screenshots
+## 🧪 Testing
 
-> Add these after pushing the project.
+The APIs have been tested using **Swagger UI** and **Postman** for:
 
-- Swagger Home
+- User Registration
 - User Login
-- JWT Authorization
-- Create Task
-
----
-
-## 🚀 Next Improvements
-
-- PostgreSQL
-- User-specific Tasks
-- Role-Based Access Control
-- Refresh Tokens
-- Pagination & Sorting
+- JWT Authentication
+- Task CRUD Operations
+- Task Status Filtering
 
 ---
 
@@ -126,4 +151,4 @@ http://localhost:8081/swagger-ui/index.html
 
 **Gargi Pal**
 
-Backend Developer | Java | Spring Boot | Spring Security
+Backend Developer | Java | Spring Boot | Spring Security | REST APIs
