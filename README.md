@@ -137,13 +137,13 @@ http://localhost:8081/swagger-ui/index.html
 
 ## 🧪 Testing
 
-The APIs have been tested using **Swagger UI** and **Postman** for:
+Manually verified via Swagger UI and Postman:
+- User registration & login flows
+- JWT-protected endpoint access
+- Task CRUD operations
+- Status-based filtering
 
-- User Registration
-- User Login
-- JWT Authentication
-- Task CRUD Operations
-- Task Status Filtering
+Automated test suite (JUnit/Mockito): planned — see Next Improvements
 
 ---
 
