@@ -1,27 +1,23 @@
-# 🔐 Secure Task Management Backend
+# 🚀 Secure Task Management API
 
-A secure RESTful backend application built with **Spring Boot** featuring **JWT Authentication**, **Spring Security**, and complete task management APIs. The project follows a clean layered architecture and demonstrates authentication, authorization, and REST API development.
+A secure RESTful Task Management API built with **Spring Boot**, **Spring Security**, **JWT Authentication**, and **Swagger/OpenAPI**. The project demonstrates secure authentication, task management, and clean backend architecture.
 
-## 🚀 Live Demo
+🌐 **Live Demo:** https://taskmanagement-i92t.onrender.com
 
-**Live API:** https://taskmanagement-i92t.onrender.com
-
-**GitHub Repository:** https://github.com/Gargipal12/taskmanagement
-
-> **Note:** This is a backend API. Test the endpoints using Postman or any REST client.
+📂 **Repository:** https://github.com/Gargipal12/taskmanagement
 
 ---
 
 ## ✨ Features
 
-- JWT Authentication & Authorization
-- Secure User Registration & Login
-- BCrypt Password Encryption
-- Task CRUD Operations
-- Task Status Filtering
-- RESTful API Design
-- Layered Architecture (Controller → Service → Repository)
-- Dockerized & Cloud Deployed on Render
+- 🔐 JWT Authentication & Authorization
+- 👤 User Registration & Login
+- 📋 Task CRUD Operations
+- 🔍 Filter Tasks by Status
+- 📖 Swagger/OpenAPI Documentation
+- 🔒 BCrypt Password Encryption
+- 🐳 Docker Support
+- ☁️ Deployed on Render
 
 ---
 
@@ -34,10 +30,36 @@ A secure RESTful backend application built with **Spring Boot** featuring **JWT 
 - Spring Data JPA
 - Hibernate
 - H2 Database
+- Swagger (Springdoc OpenAPI)
 - Maven
 - Docker
 - Render
-- Postman
+
+---
+
+## 🏗️ Architecture
+
+```text
+Client
+   │
+   ▼
+Spring Security
+   │
+   ▼
+JWT Filter
+   │
+   ▼
+Controller
+   │
+   ▼
+Service
+   │
+   ▼
+Repository
+   │
+   ▼
+H2 Database
+```
 
 ---
 
@@ -71,34 +93,32 @@ cd taskmanagement
 ./mvnw spring-boot:run
 ```
 
-Application runs at:
+Swagger UI:
 
 ```
-http://localhost:8081
+http://localhost:8081/swagger-ui/index.html
 ```
 
 ---
 
-## 🧪 Testing
+## 📷 Screenshots
 
-The application has been tested using Postman for:
+> Add these after pushing the project.
 
-- User Registration
+- Swagger Home
 - User Login
-- JWT Authentication
-- Task CRUD Operations
-- Status-based Task Filtering
+- JWT Authorization
+- Create Task
 
 ---
 
-## 📈 Upcoming Improvements
+## 🚀 Next Improvements
 
-- PostgreSQL Integration
-- User-specific Task Management
-- Swagger/OpenAPI Documentation
+- PostgreSQL
+- User-specific Tasks
+- Role-Based Access Control
 - Refresh Tokens
-- Role-Based Authorization
-- Unit & Integration Testing
+- Pagination & Sorting
 
 ---
 
@@ -106,4 +126,4 @@ The application has been tested using Postman for:
 
 **Gargi Pal**
 
-Backend Developer | Java | Spring Boot | Spring Security | REST APIs
+Backend Developer | Java | Spring Boot | Spring Security
