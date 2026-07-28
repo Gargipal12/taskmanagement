@@ -1,238 +1,77 @@
 # 🔐 Secure Task Management Backend
 
-A production-ready RESTful backend application built with **Spring Boot** featuring **JWT Authentication**, **Spring Security**, secure user registration & login, and complete task management APIs following a clean layered architecture.
+A secure RESTful backend application built with **Spring Boot** featuring **JWT Authentication**, **Spring Security**, and complete task management APIs. The project follows a clean layered architecture and demonstrates authentication, authorization, and REST API development.
+
+## 🚀 Live Demo
+
+**Live API:** https://taskmanagement-i92t.onrender.com
+
+**GitHub Repository:** https://github.com/Gargipal12/taskmanagement
+
+> **Note:** This is a backend API. Test the endpoints using Postman or any REST client.
 
 ---
 
-## 🚀 Live Deployment
+## ✨ Features
 
-**Base URL**
-
-https://taskmanagement-production-739e.up.railway.app
-
-**Current Live Task API**
-
-https://taskmanagement-production-739e.up.railway.app/api/tasks
-
-> **Note:** The GitHub project includes JWT Authentication and Spring Security. Deploy the latest version to Railway to enable the authentication endpoints online.
-
----
-
-# ✨ Features
-
-- 🔐 JWT Authentication
-- 👤 Secure User Registration
-- 🔑 Secure User Login
-- 🔒 Password Encryption using BCrypt
-- ✅ Complete CRUD Operations for Tasks
-- 📌 Task Status Filtering
-- 🏗️ Layered Architecture (Controller → Service → Repository)
-- 🗄️ Database Integration using Spring Data JPA & Hibernate
-- 🧪 Tested using Postman
+- JWT Authentication & Authorization
+- Secure User Registration & Login
+- BCrypt Password Encryption
+- Task CRUD Operations
+- Task Status Filtering
+- RESTful API Design
+- Layered Architecture (Controller → Service → Repository)
+- Dockerized & Cloud Deployed on Render
 
 ---
 
-# 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Java 21 | Core Programming Language |
-| Spring Boot 3.x | Backend Framework |
-| Spring Security | Authentication & Authorization |
-| JWT (JSON Web Token) | Secure Authentication |
-| Spring Data JPA | Database Access |
-| Hibernate | ORM Framework |
-| H2 Database | Development & Testing |
-| MySQL | Production Database |
-| Maven | Dependency Management |
-| Postman | API Testing |
-
----
-
-# 📂 Project Structure
-
-```
-src
-├── controller
-│   ├── AuthController
-│   └── TaskController
-│
-├── dto
-│   ├── RegisterRequest
-│   ├── LoginRequest
-│   └── AuthResponse
-│
-├── model
-│   ├── User
-│   ├── Task
-│   └── TaskStatus
-│
-├── repository
-│   ├── UserRepository
-│   └── TaskRepository
-│
-├── security
-│   ├── JwtService
-│   ├── SecurityConfig
-│   └── CustomUserDetailsService
-│
-├── service
-│   ├── AuthService
-│   └── TaskService
-│
-└── resources
-```
+- Java 21
+- Spring Boot
+- Spring Security
+- JWT
+- Spring Data JPA
+- Hibernate
+- H2 Database
+- Maven
+- Docker
+- Render
+- Postman
 
 ---
 
-# 🔐 Authentication APIs
+## 📌 API Endpoints
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| POST | `/auth/register` | Register a new user |
-| POST | `/auth/login` | Authenticate user and generate JWT |
+### Authentication
 
----
+| Method | Endpoint |
+|---------|----------|
+| POST | `/auth/register` |
+| POST | `/auth/login` |
 
-# 📋 Task APIs
+### Tasks
 
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| GET | `/api/tasks` | Get all tasks |
-| GET | `/api/tasks/{id}` | Get task by ID |
-| POST | `/api/tasks` | Create a new task |
-| PUT | `/api/tasks/{id}` | Update an existing task |
-| DELETE | `/api/tasks/{id}` | Delete a task |
-| GET | `/api/tasks/status/{status}` | Filter tasks by status |
-
----
-
-# 🔄 Authentication Flow
-
-## User Registration
-
-```
-Client
-   │
-   ▼
-POST /auth/register
-   │
-   ▼
-Validate Request
-   │
-   ▼
-Check Existing Email
-   │
-   ▼
-Encrypt Password (BCrypt)
-   │
-   ▼
-Save User
-   │
-   ▼
-Generate JWT
-   │
-   ▼
-Return Token
-```
+| Method | Endpoint |
+|---------|----------|
+| GET | `/api/tasks` |
+| GET | `/api/tasks/{id}` |
+| POST | `/api/tasks` |
+| PUT | `/api/tasks/{id}` |
+| DELETE | `/api/tasks/{id}` |
+| GET | `/api/tasks/status/{status}` |
 
 ---
 
-## User Login
-
-```
-Client
-   │
-   ▼
-POST /auth/login
-   │
-   ▼
-Verify Credentials
-   │
-   ▼
-Generate JWT
-   │
-   ▼
-Return Token
-```
-
----
-
-# 🏗️ Architecture
-
-```
-Client
-   │
-   ▼
-Spring Security
-   │
-   ▼
-Controller
-   │
-   ▼
-Service
-   │
-   ▼
-Repository
-   │
-   ▼
-Database
-```
-
-### Controller
-Handles incoming HTTP requests and returns HTTP responses.
-
-### Service
-Contains business logic and coordinates application workflows.
-
-### Repository
-Performs database operations using Spring Data JPA.
-
-### Security
-Handles authentication, authorization, password encryption, and JWT generation.
-
----
-
-# 📦 Database
-
-### User
-
-- id
-- name
-- email
-- password (BCrypt Encrypted)
-
-### Task
-
-- id
-- title
-- description
-- status
-- dueDate
-
----
-
-# ▶️ Running the Project
-
-### Clone Repository
+## ▶️ Run Locally
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Gargipal12/taskmanagement.git
+cd taskmanagement
+./mvnw spring-boot:run
 ```
 
-### Open in IntelliJ IDEA
-
-Import as a Maven project.
-
-### Run
-
-Execute
-
-```
-TaskmanagerApplication.java
-```
-
-Application starts at
+Application runs at:
 
 ```
 http://localhost:8081
@@ -240,35 +79,25 @@ http://localhost:8081
 
 ---
 
-# 🧪 Testing
+## 🧪 Testing
 
-The project has been tested using **Postman**.
+The application has been tested using Postman for:
 
-### Authentication
-
-- ✅ Register User
-- ✅ Login User
-- ✅ JWT Token Generation
-
-### Task APIs
-
-- ✅ Create Task
-- ✅ Get All Tasks
-- ✅ Get Task by ID
-- ✅ Update Task
-- ✅ Delete Task
-- ✅ Filter Tasks by Status
+- User Registration
+- User Login
+- JWT Authentication
+- Task CRUD Operations
+- Status-based Task Filtering
 
 ---
 
-# 📌 Future Enhancements
+## 📈 Upcoming Improvements
 
+- PostgreSQL Integration
+- User-specific Task Management
+- Swagger/OpenAPI Documentation
 - Refresh Tokens
-- Role-Based Authorization (Admin/User)
-- Email Verification
-- Docker Deployment
-- Swagger / OpenAPI Documentation
-- PostgreSQL Support
+- Role-Based Authorization
 - Unit & Integration Testing
 
 ---
@@ -277,4 +106,4 @@ The project has been tested using **Postman**.
 
 **Gargi Pal**
 
-Backend Developer | Java | Spring Boot | Spring Security | REST APIs | JWT Authentication
+Backend Developer | Java | Spring Boot | Spring Security | REST APIs
